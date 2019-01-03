@@ -1,0 +1,54 @@
+/* oi */
+.pull-right {
+  float: right;
+}
+body {
+  background: #f5f7fa;
+}
+form {
+  width: 100%;
+}
+.form-group {
+  float:left;
+}
+.form-group label {
+  float: left;
+  text-align: left;
+  font-size: 1em;
+  color:#959595;
+}
+header {
+  padding:5px 10px 25px 10px!important;
+  height: 100px;
+  background: #fff!important;
+}
+h1.logo {
+  float:left;
+}
+h1.logo a {
+    /*text-indent: -9999px;*/
+    background: url('https://via.placeholder.com/200x45');
+    height: 45px;
+    width: 200px;
+    float: left;
+
+}
+
+#app .title-section {
+  background: #4687df;
+  padding:10px 0;
+}
+#app .title-section h2{
+  color:#fff;
+  text-align: left;
+  margin:0;
+  font-size: 1.6em;
+}
+
+#frmNovoHeroi {
+  background: #fff;
+  width: 100%;
+  float: left;
+  border-radius: 8px;
+  padding:35px 15px;
+}
