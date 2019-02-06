@@ -1,4 +1,4 @@
-# bruno-newway
+# bruno VUE project
 
 > test
 
