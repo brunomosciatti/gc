@@ -2,59 +2,29 @@
   <div id="app">
     <div class="title-section">
       <div class="container">
-        <h2>Novo Herói</h2>
+        <h3>users online: {{gc.online}}</h3>
+        <h3>latest banned: {{gc.latest_banned}}</h3>
+        <h3>user name: {{gc.user.name}}</h3>
+        <h3>user id: {{gc.user.id}}</h3>
+        <h3>user expertise: {{gc.user.expertise}}</h3>
+        <h3>user level: {{gc.user.level}}</h3>
+        <h3>user subscription: {{gc.user.is_subscriber}}</h3>
+        <h3>user patent: {{gc.user.is_subscriber}}</h3><img v-bind:src="gc.user.patent" />
+        <h3>game position id : {{gc.user.game_position.id}}</h3>
+        <h3>game position title : {{gc.user.game_position.title}}</h3>
+        <img v-bind:src="gc.user.game_position.image" />
+        <h3>featured medal id: {{gc.user.featured_medal.id}}</h3>
+        <h3>featured medal title: {{gc.user.featured_medal.title}}</h3>
+        <img v-bind:src="gc.user.featured_medal.image" />
+
+
+
       </div>
     </div>
     <main class="container">
       <div class="row">
-	  <form role="form" id="frmNovoHeroi">
-        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-6">
-            <label for="frmNome">Nome</label>
-            <input v-model="hero.name" type="text" class="form-control" id="frmNome">
-        </div>
-        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-3">
-            <label for="frmEspecialidades">Especialidades</label>
-            <select v-model="hero.speciality" name="frmEspecialidades" id="frmEspecialidades" class="form-control" tabindex="12">
-                <option>Selecione uma especialidade</option>
-                <option v-for="x in specialities" :value="x.id">{{ x.name }}</option>
 
-            </select>
-        </div>
-        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-3">
-            <label for="frmClasse">Classe</label>
-            <select v-model="hero.class_id" name="frmClasse" id="frmClasse" class="form-control" tabindex="12">
-              <option>Selecione uma classe</option>
-                <option v-for="y in classes" :value="y.id">{{ y.name }}</option>
 
-            </select>
-        </div>
-        <div class="clearfix"></div>
-        <div class="form-group col-xs-10 col-sm-4 col-md-2 col-lg-2">
-            <label for="frmVida">Vida</label>
-            <input type="number" class="form-control" v-model="hero.health_points" id="frmVida">
-        </div>
-        <div class="form-group col-xs-10 col-sm-4 col-md-2 col-lg-2">
-            <label for="frmDefesa">Defesa</label>
-            <input v-model="hero.defense" type="number" class="form-control" id="frmDefesa" >
-        </div>
-        <div class="form-group col-xs-10 col-sm-4 col-md-2 col-lg-2">
-            <label for="frmDano">Dano</label>
-            <input v-model="hero.damage" type="number" class="form-control" id="frmDano" >
-        </div>
-        <div class="form-group col-xs-10 col-sm-4 col-md-2 col-lg-3">
-            <label for="frmVelAtk">Velocidade de ataque</label>
-            <input v-model="hero.attack_speed" type="number" class="form-control" id="frmVelAtk" >
-        </div>
-        <div class="form-group col-xs-10 col-sm-4 col-md-2 col-lg-3">
-            <label for="frmVelMov">Velocidade de movimento</label>
-            <input v-model="hero.movement_speed" type="number" class="form-control" id="frmVelMov" >
-        </div>
-        <div class="clearfix"></div>
-
-        <div class="col-xs-10 col-sm-4 col-md-4 col-lg-4">
-            <button @click="postNow()" type="button" class="btn btn-default">Submit</button>
-        </div>
-    </form>
     <div class="clearfix"></div>
 
 
@@ -62,13 +32,6 @@
 
   <div class="row">
     <!-- dropzone -->
-    <h1>{{hero.class_id}}</h1>
-    <h1>{{hero.movement_speed}}</h1>
-    <h1>{{hero.atack_speed}}</h1>
-    <h1>{{hero.damage}}</h1>
-    <h1>{{hero.defense}}</h1>
-    <h1>{{hero.name}}</h1>
-
 
 
   </div>
@@ -84,54 +47,37 @@
 import axios from 'axios';
 
 export default {
-
-
  name: 'app',
  data () {
    return {
-     hero: {
+     online: '',
+     name: '',
+     user: {
        name: '',
-       speciality: '',
-       class_id: '',
-       health_points: '',
-       defense:'',
-       attack_speed: '',
-       movement_speed: ''
+       id: '',
+       expertise : '',
+       is_subscriber : '',
+       patent : '',
+       level : '',
+       game_position: {
+         id: '',
+         title: '',
+         image: ''
+       },
+       featured_medal: {
+         id: '',
+         title: '',
+         image: ''
+       }
      },
-     specialities: [],
-     loading: false,
-     classes: [],
+
    }
  },
- methods: {
-   postNow() {
-      axios.post('http://heroes.qanw.com.br/heroes', {
-         headers: {
-            'Content-type': 'application/json',
-          },
-            class_id: this.hero.class_id,
-            name: this.hero.name,
-            health_points: this.hero.health_points,
-            defense: this.hero.defense,
-            attack_speed: this.hero.attack_speed,
-            movement_speed: this.hero.movement_speed,
-            specialities: this.hero.speciality
-           }
-         ).then(function(data){
-           console.log(data);
-         });
-        },
-      },
  mounted () {
     axios
-      .get('http://heroes.qanw.com.br:7625/specialties')
+      .get('https://api.myjson.com/bins/qedp4')
       .then(response => {
-        this.specialities = response.data
-      })
-      axios
-      .get('http://heroes.qanw.com.br:7625/classes')
-      .then(response => {
-        this.classes = response.data
+        this.gc = response.data
       })
       .catch(error => {
         console.log(error)
