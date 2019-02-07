@@ -1,17 +1,16 @@
-# bruno-newway
+# GC.bruno
 
-> test
+> Bora fechar? :p
 
 ## Build Setup
 
 ``` bash
-# install dependencies
+# Instalar dependências
 npm install
 
-# serve with hot reload at localhost:8080
+# Rodando em localhost:8080
 npm run dev
 
-# build for production with minification
+# Build de produção
 npm run build
 ```
-
