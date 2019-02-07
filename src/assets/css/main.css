@@ -236,6 +236,9 @@ header {
   line-height: 16px;
   text-align: left;
   margin-top:25px;
+  /*fix with v-if lenght */
+  max-height:16px;
+  overflow: hidden;
 }
 
 .sv-card .sv-mode {
@@ -486,4 +489,9 @@ header {
 
 .footer .gc-info .ban p em {
   color:#eb2f2f;
+}
+
+.sv-title {
+  overflow: hidden;
+  max-width: 15ch;
 }
