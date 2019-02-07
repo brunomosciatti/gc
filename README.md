@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 # GC.bruno
-=======
+
 # bruno VUE project
->>>>>>> ad13ed8ac910e54244084e5f61120ecafbebb35b
 
 > Bora fechar? :p
 
