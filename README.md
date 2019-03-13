@@ -2,7 +2,7 @@
 
 # bruno VUE project
 
-> Bora fechar? :p
+> practicing vue.js
 
 ## Build Setup
 
